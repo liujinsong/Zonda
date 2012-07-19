@@ -4,7 +4,7 @@
  */
     define( function ( require, exports, module ) {
         // 加载 ie.css
-        require('../css/ie.css#');
+        require('./ie.css#');
 
         // 加载jQuery 模块
         var $ = require('jquery');
