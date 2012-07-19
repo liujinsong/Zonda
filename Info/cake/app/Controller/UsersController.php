@@ -25,7 +25,6 @@ class UsersController extends AppController {
             return;
         }
         $pass = $this->User->save($this->request->data);
-                debug($this->User->validationErrors);
         if ($pass) {
             $this->redirect($this->Auth->redirect());
         } else {

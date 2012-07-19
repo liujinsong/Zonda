@@ -1,32 +1,48 @@
 <?php
+app::uses('tbfObject','Utility');
+app::uses('tbfPath','Utility');
 function tbfLoadProject(){
     return tbfLoadProject::defaultObj();
 }
 class tbfLoadProject extends tbfObject{
     public $classes = array();
-    function loadAllPhp(){
-        if (getCallNum('tbfLoadProject_LoadAllPhp')>1){
+    function hasLoad(){
+        $files = get_included_files();
+        return $files;
+    }
+    function loadAllPhp($path){
+        static $hasIn = false;
+        if ($hasIn){
             return;
         }
-        import('kernel.utility.tbfPath');
-        $file = tbfPath::listFileR(appPath::$root);
+        $hasIn = true;
+        $file = tbfPath::listFileR($path);
+        $hasLoad = $this->hasLoad();
         foreach($file as $v1){
-            if (strpos($v1,'/test')!==false){
-                continue;
-            }
-            if (strpos($v1,'/vendor/')!==false){
-                continue;
-            }
             $ext = tbfPath::getExt($v1);
             if ($ext!=='php'){
                 continue;
             }
-            appPath::importByPath($v1);
+            if (strpos($v1,'/Test')!==false){
+                continue;
+            }
+            if (strpos($v1,'/vendors/')!==false){
+                continue;
+            }
+            if (strpos($v1,'index.php')!==false){
+                continue;
+            }
+            if (strpos($v1,'test.php')!==false){
+                continue;
+            }
+            if (in_array($v1,$hasLoad)){
+                continue;
+            }
+            include_once ($v1);
         }
         $this->classes = get_declared_classes();
     }
     function getAllSubclass($className){
-        $this->loadAllPhp();
         $output = array();
         foreach($this->classes as $class){
             if (!is_subclass_of($class,$className)){
@@ -37,9 +53,10 @@ class tbfLoadProject extends tbfObject{
         return $output;
     }
     function getAllModel(){
-        return $this->getAllSubclass('model');
+        $this->loadAllPhp(app::path('Model')[0]);
+        return $this->getAllSubclass('AppModel');
     }
     function getAllController(){
-        return $this->getAllSubclass('controller');
+        return $this->getAllSubclass('Controller');
     }
 }//class

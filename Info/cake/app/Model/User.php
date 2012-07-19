@@ -1,7 +1,14 @@
 <?php
-// app/Model/User.php
+/**
+ * 用户表
+ */
 class User extends AppModel {
-    public $name = 'User';
+    public $schemaDef = array(
+       'id'=>array('uint','primary','ai'),
+       'username'=>array('string'),
+       'password'=>array('string'),
+       'created'=>'datetime',
+       'modified'=>'datetime');
     public $validate = array(
         'username' => array(
             'required' => array(
@@ -25,12 +32,12 @@ class User extends AppModel {
                    'rule' => array('notEmpty'),
                     'message'=>'需要再次输入密码'),
                 'r2'=>array(
-                    'rule'=>array('equalTo','Password'),
+                    'rule'=>array('sameAs','password'),
                     'message'=>'两次输入密码不一致'),
             )
     );
     
-    public function beforeSave($data) {
+    public function beforeSave() {
         if (isset($this->data[$this->alias]['password'])) {
             $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
         }
