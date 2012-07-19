@@ -29,6 +29,30 @@ $_CACHE['apps'] = array (
 </root>',
     'allowips' => '',
   ),
+  2 => 
+  array (
+    'appid' => '2',
+    'type' => 'OTHER',
+    'name' => '校友信息系统',
+    'url' => 'http://info.alumni2012.com',
+    'authkey' => '123456789',
+    'ip' => '127.0.0.1',
+    'viewprourl' => '',
+    'apifilename' => 'uc.php',
+    'charset' => '',
+    'dbcharset' => '',
+    'synlogin' => '1',
+    'recvnote' => '1',
+    'extra' => 
+    array (
+      'apppath' => '',
+    ),
+    'tagtemplates' => '<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="template"><![CDATA[]]></item>
+</root>',
+    'allowips' => '',
+  ),
 );
 
 ?>

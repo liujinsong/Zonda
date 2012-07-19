@@ -1,0 +1,3 @@
+/data/view/*
+!index.html
+/data/logs/*

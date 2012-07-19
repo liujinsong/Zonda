@@ -106,6 +106,7 @@ $_SCONFIG=Array
 	'updatestat' => 1,
 	'my_showgift' => 1,
 	'topcachetime' => 60,
-	'newspacenum' => 3
+	'newspacenum' => 3,
+	'sitekey' => 'a61f7e94vtvjo1Mt'
 	)
 ?>

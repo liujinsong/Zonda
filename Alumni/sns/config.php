@@ -47,5 +47,3 @@ define('UC_CHARSET', 'utf-8'); // UCenter 的字符集
 define('UC_IP', '127.0.0.1'); // UCenter 的 IP, 当 UC_CONNECT 为非 mysql 方式时, 并且当前应用服务器解析域名有问题时, 请设置此值
 define('UC_APPID', '1'); // 当前应用的 ID
 define('UC_PPP', 20);
-
-?>

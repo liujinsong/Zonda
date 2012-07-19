@@ -10,24 +10,25 @@ $_CACHE['apps'] = array (
     'viewprourl' => '',
     'apifilename' => 'uc.php',
     'charset' => 'utf-8',
-    'dbcharset' => 'utf8',
     'synlogin' => '1',
+    'extra' => '',
     'recvnote' => '1',
-    'extra' => false,
-    'tagtemplates' => '<?xml version="1.0" encoding="ISO-8859-1"?>
-<root>
-	<item id="template"><![CDATA[<a href="{url}" target="_blank">{subject}</a>]]></item>
-	<item id="fields">
-		<item id="subject"><![CDATA[日志标题]]></item>
-		<item id="uid"><![CDATA[用户 ID]]></item>
-		<item id="username"><![CDATA[用户名]]></item>
-		<item id="dateline"><![CDATA[日期]]></item>
-		<item id="spaceurl"><![CDATA[空间地址]]></item>
-		<item id="url"><![CDATA[日志地址]]></item>
-	</item>
-</root>',
-    'allowips' => '',
+  ),
+  2 => 
+  array (
+    'appid' => '2',
+    'type' => 'OTHER',
+    'name' => '校友信息系统',
+    'url' => 'http://info.alumni2012.com',
+    'ip' => '127.0.0.1',
+    'viewprourl' => '',
+    'apifilename' => 'uc.php',
+    'charset' => '',
+    'synlogin' => '1',
+    'extra' => 
+    array (
+      'apppath' => '',
+    ),
+    'recvnote' => '1',
   ),
 );
-
-?>

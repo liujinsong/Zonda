@@ -247,7 +247,7 @@ if (extension_loaded('apc') && function_exists('apc_dec') && (php_sapi_name() !=
 // In development mode, caches should expire quickly.
 $duration = '+999 days';
 if (Configure::read('debug') >= 1) {
-	$duration = '+10 seconds';
+	$duration = '+0 seconds';
 }
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
