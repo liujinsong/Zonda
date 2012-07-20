@@ -1,13 +1,133 @@
-@base-font-color : #545454;
-@z-index : 99;
+/**
+* 主CSS文件
+*/
+// 路径配置
+@img : '../../images/';
 
-body {
-    color: @base-font-color;
+// bootstrap, reset
+@import 'bootstrap.min.css';
+
+// 预定义样式
+.opacity ( @num : 50 ) {
+    opacity: @num / 100;
+    filter: alpha(opacity=@num);
 }
 
-p {
-    width: 200px;
-    height:100px;
-    color: @base-font-color;
-    z-index: @z-index;
+.box-shadow ( @x: 1px, @y: 1px, @blur: 2px, @color: rgba( 0, 0, 0, 0.3 ) ) {
+    box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    -webkit-box-shadow: @arguments;
+}
+
+.background-gradient ( @start: #EDEDED, @end: #DEDEDE ) {
+    background-image: linear-gradient( 
+    @start, 
+    @end
+    );
+
+    background-image: -webkit-linear-gradient( 
+    @start, 
+    @end
+    );
+
+    background-image: -moz-linear-gradient( 
+    @start, 
+    @end
+    );
+}
+
+// 当前项目可复用样式
+@base-width: 980px;
+@inner-width: 950px;
+
+body {
+    background: url(../../images/body-bg.png) top repeat-x;
+}
+
+.wrap {
+    width: @base-width;
+
+    margin: 0 auto;
+}
+
+// 头部样式
+#header {
+    width: @inner-width;
+    height: 116px;
+
+    margin:0 auto;
+    padding-top: 19px;
+
+    background: #FFF;
+
+    .logo {
+        width: 417px;
+        height: 60px;
+
+        display: block;
+
+        float:left;
+
+        background: url( '@{img}image.png') no-repeat center;
+        background-position: 0 0;
+    }
+
+    // 搜索
+    .search {
+        float: left;
+
+        padding: 10px 0 0 15px;
+
+        label {
+            float: left;
+            
+            padding-right: 13px;
+
+            line-height: 25px;
+            font-size: 12px;
+            color: #878787;
+        }
+
+        button {
+            width: 25px;
+            height: 25px;
+
+            float: left;
+
+            margin-left: 7px;
+
+            border: none;
+
+            background: url('@{img}image.png') no-repeat center;
+            background-position: -197px -70px;
+
+            &:hover {
+                background-position: -197px -96px;
+            }
+        }
+
+        #search-input {
+            width: 162px;
+            height: 21px;
+
+            float: left;
+
+            padding: 2px 5px 2px 5px;
+
+            border: none;
+
+            background: url('@{img}image.png') no-repeat center;
+            background-position: -4px -69px;
+
+            &:hover {
+                background-position: -4px -95px;
+            }
+            &:focus {
+                background-position: -4px -95px;
+            }
+            &:active {
+                background-position: -4px -95px;
+            }
+        } 
+    }
 }
