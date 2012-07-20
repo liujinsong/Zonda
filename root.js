@@ -1,6 +1,6 @@
 /**
  * root.js
- * 以页面的唯一DOM加载所需脚本
+ * 以视图的唯一DOM加载所需脚本
  */
 define( function ( require, exports, module ) {
     var $ = require('jquery');
@@ -14,8 +14,5 @@ define( function ( require, exports, module ) {
     if ( $("#test-class")[0] ) {
         require.async('./module/classTest');
     }
-
-    // 测试bootstrap模块
-    require('./module/bootstrap/js/bootstrap.min');
 
 }); // END root.js
