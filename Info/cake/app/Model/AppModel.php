@@ -31,4 +31,15 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+    public function sameAs($check,$fields) {
+        if (!isset($this->data[$this->alias][$fields])){
+            return false;
+        }
+        $check = array_pop($check);
+        if ($this->data[$this->alias][$fields]==$check){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

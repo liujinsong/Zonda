@@ -1,6 +1,6 @@
 <?php
-import('kernel.utility.tbfArray');
-class tbfPath extends tbfStaticObject{
+app::uses('tbfArray','Utility');
+class tbfPath{
     /**
     * 从目录中递归获取所有文件,不含目录类型的文件
     * 返回绝对路径
@@ -13,7 +13,7 @@ class tbfPath extends tbfStaticObject{
         $dirFiles = self::listDir($dir);
         foreach($dirFiles as $v1){
             if (!is_dir($v1)){
-                $files[]=$v1;
+                $files[]=realpath($v1);
                 continue;
             }else{
                 $files =array_merge($files, self::listFileR($v1,$depth-1));

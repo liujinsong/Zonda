@@ -8,7 +8,7 @@
  @category   tbf
  @package kernel.utility
  */ 
-import('kernel.utility.tbfRand');
+app::uses('tbfRand','Utility');
 class tbfPipe extends tbfObject{
     public $reader = null;
     public $writer = null;

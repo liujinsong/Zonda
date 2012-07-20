@@ -6,8 +6,9 @@
  * @category   tbf
  * @package kernel.utility
  */ 
-import('kernel.utility.tbfAccess');
-import('kernel.utility.giveName');
+
+app::uses('tbfAccess','Utility');
+app::uses('tbfGiveName','Utility');
 class tbfAccessArray extends tbfAccess{
     private $_access = array(); 
     /**
