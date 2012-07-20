@@ -1,0 +1,4 @@
+Error: Command failed: [31mParseError: Syntax Error on line 1[39m[31m in [39m/home/shiyang/www/Alumni2012/Foundation/statics/foundation/css/common.less[90m:1:0[39m
+1 [7m[31m[1m@[22mbase-font-color = #fff;[39m[27m
+[90m2 @z-index : 99;[39m[0m
+
