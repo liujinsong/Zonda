@@ -36,25 +36,8 @@
                 this.DD_belatedPNG = DD_belatedPNG;
 
                 DD_belatedPNG.fix(
-                    '#header #logo,' +
-                    ' #header #menu .on,' +
-                    '#header #menu .cell_line,' +
-                    '.tougao,' +
-                    '#header_big_nav .cell .on,' +
-                    '#search,' +
-                    '#slide .bar li.item,' +
-                    '#slide .bar li.on,' +
-                    '#slide .bar .play,' +
-                    '#slide .bar .stop,' +
-                    '#slide .bar,' +
-                    '.home_page .side_bar .cell .date,' +
-                    '#header #menu,' +
-                    '#footer .cell,' +
-                    '#contribute-top-menu,' +
-                    '#fw #main #side_bar,' +
-                    '#contribute-image-upload-block button,' +
-                    '#contribute-editor-attachment-button,' +
-                    '#fw #header .menu .arr'
+                    '#header .menu,' +
+                    '#header .first-menu-cell'
                 );
 
                 $(".apps img").each( function () {
@@ -63,4 +46,10 @@
 
             });
         } // END png fix
+
+        // 菜单first-child
+        if ( $("#header .menu")[0] ) {
+            $("#header .menu a").eq(0).addClass('first-menu-cell');
+        }
+
     });// END define

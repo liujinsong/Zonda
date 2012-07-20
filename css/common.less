@@ -8,6 +8,10 @@
 @import 'bootstrap.min.css';
 
 // 预定义样式
+.clear {
+    clear: both;
+}
+
 .opacity ( @num : 50 ) {
     opacity: @num / 100;
     filter: alpha(opacity=@num);
@@ -41,7 +45,7 @@
 @inner-width: 950px;
 
 body {
-    background: url(../../images/body-bg.png) top repeat-x;
+    background: #fff url('@{img}body-bg.png') top repeat-x;
 }
 
 .wrap {
@@ -58,7 +62,7 @@ body {
     margin:0 auto;
     padding-top: 19px;
 
-    background: #FFF;
+    background: #fff;
 
     .logo {
         width: 417px;
@@ -76,7 +80,7 @@ body {
     .search {
         float: left;
 
-        padding: 10px 0 0 15px;
+        padding: 36px 0 0 15px;
 
         label {
             float: left;
@@ -108,16 +112,20 @@ body {
 
         #search-input {
             width: 162px;
-            height: 21px;
+            height: 25px;
 
             float: left;
 
-            padding: 2px 5px 2px 5px;
+            padding: 0 5px 0 5px;
 
             border: none;
 
+            overflow: hidden;
+
             background: url('@{img}image.png') no-repeat center;
             background-position: -4px -69px;
+
+            line-height: 25px;
 
             &:hover {
                 background-position: -4px -95px;
@@ -129,5 +137,92 @@ body {
                 background-position: -4px -95px;
             }
         } 
+    } // END search
+
+    // 头部导航菜单
+    .menu {
+        width: @inner-width;
+        height: 43px;
+
+        margin-top: 11px;
+
+        clear: both;
+
+        position: relative;
+        top: 11px;
+
+        background: url('@{img}image.png') no-repeat center;
+        background-position: -15px -140px;
+
+        ul {
+            margin: 0;
+        }
+
+        li {
+            float: left;
+
+            list-style: none;
+
+            &:first-child a {
+                padding-left: 30px;
+
+                background: none;
+            }
+
+            &:first-child a:hover {
+                background: url('@{img}image.png') no-repeat center;
+                background-position: -452px -64px;
+            }
+        }
+
+        a {
+            height: 34px;
+
+            float: left;
+
+            padding-left: 20px;
+            padding-right: 20px;
+
+            background: url('@{img}image.png') no-repeat center left;
+            background-position: -243px -101px;
+
+            line-height: 35px;
+            color: #fff;
+            font-size: 12px;
+
+            &:hover {
+                background-position: -243px -65px;
+
+                text-decoration: none;
+            }
+        }
+
+    } // END menu
+
+} // END header
+
+// 主体
+#main {
+    width: @base-width;
+    height: 600px;
+
+    background: #fff;
+
+    .wrap {
+        width: @inner-width;
     }
+    
+    // Slide以及新闻动态
+    .big-board {
+    width: @inner-width;
+    height: 315px;
+
+    background: #003F75;
+    }
+}
+
+// Slide
+#big-slide {
+    width: 475px;
+    height: 315px;
 }

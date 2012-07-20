@@ -30,3 +30,20 @@
 #header .search button {
     _display: inline;
 }
+
+/* 菜单 first-child */
+#header .first-menu-cell {
+    padding-left: 30px!IMPORTANT;
+
+    background-position: 100px 100px!IMPORTANT;
+}
+
+#header .first-menu-cell:hover {
+    background-position: -452px -64px!IMPORTANT;
+}
+
+/* IE9 神秘BUG */
+:root #main {
+    position: relative;
+    top: -1px;
+}

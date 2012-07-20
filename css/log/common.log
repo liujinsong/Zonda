@@ -1,5 +1,5 @@
-Error: Command failed: [31mSyntaxError: expected ')' got '{'[39m[31m in [39m/home/shiyang/www/Alumni2012/Foundation/statics/foundation/css/common.less[90m:57:26[39m
-[90m56 [39m
-57         background: url( @[7m[31m[1m{[22mimg}'image.png');[39m[27m
-[90m58     }[39m[0m
+Error: Command failed: [31mParseError: Syntax Error on line 228[39m[31m in [39m/home/shiyang/www/Alumni2012/Foundation/statics/foundation/css/common.less[90m:228:4[39m
+[90m227     height: 315px;[39m
+228     [7m[31m[1mh[22meight@;[39m[27m
+[90m229 }[39m[0m
 
