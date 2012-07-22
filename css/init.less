@@ -1,0 +1,73 @@
+/**
+* 主CSS文件
+*/
+// 路径配置
+@img : '../../images/';
+
+// bootstrap, reset
+@import 'bootstrap.min.css';
+
+// 预定义样式
+.clear {
+    clear: both;
+}
+
+.opacity ( @num : 50 ) {
+    opacity: @num / 100;
+    filter: alpha(opacity=@num);
+}
+
+.box-shadow ( @x: 1px, @y: 1px, @blur: 2px, @color: rgba( 0, 0, 0, 0.3 ) ) {
+    box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    -webkit-box-shadow: @arguments;
+}
+
+.background-gradient ( @start: #EDEDED, @end: #DEDEDE ) {
+    background-image: linear-gradient( 
+    @start, 
+    @end
+    );
+
+    background-image: -webkit-linear-gradient( 
+    @start, 
+    @end
+    );
+
+    background-image: -moz-linear-gradient( 
+    @start, 
+    @end
+    );
+}
+
+// 当前项目可复用样式
+@base-width: 980px;
+@inner-width: 950px;
+
+body {
+    background: #fff url('@{img}body-bg.png') top repeat-x;
+}
+
+.wrap {
+    width: @base-width;
+
+    margin: 0 auto;
+}
+
+// header
+@import 'common/header';
+
+// 首页样式
+@import 'unit/index';
+
+// 主体
+#main {
+    width: @base-width;
+    height: 600px;
+
+    background: #fff;
+
+    .wrap {
+        width: @inner-width;
+    }
+}

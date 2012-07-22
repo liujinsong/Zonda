@@ -1,0 +1,11 @@
+Error: Command failed: [31mTypeError: Cannot call method 'charAt' of undefined
+    at getLocation (/usr/local/lib/node_modules/less/lib/less/parser.js:212:34)
+    at new LessError (/usr/local/lib/node_modules/less/lib/less/parser.js:221:19)
+    at Object.toCSS (/usr/local/lib/node_modules/less/lib/less/parser.js:390:69)
+    at /usr/local/lib/node_modules/less/bin/lessc:107:28
+    at /usr/local/lib/node_modules/less/lib/less/parser.js:434:40
+    at /usr/local/lib/node_modules/less/lib/less/parser.js:94:48
+    at /usr/local/lib/node_modules/less/lib/less/index.js:116:17
+    at Object.parse (/usr/local/lib/node_modules/less/lib/less/parser.js:436:17)
+    at /usr/local/lib/node_modules/less/lib/less/index.js:115:16
+    at [object Object].<anonymous> (fs.js:115:5)[39m

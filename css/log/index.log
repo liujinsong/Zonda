@@ -1,0 +1,5 @@
+Error: Command failed: [31mNameError: variable @inner-width is undefined[39m[31m in [39m/home/shiyang/www/Alumni2012/Foundation/statics/foundation/css/unit/index.less[90m:5:11[39m
+[90m4 #main .big-board {[39m
+5     width: [7m[31m[1m@[22minner-width;[39m[27m
+[90m6     height: 315px;[39m[0m
+
