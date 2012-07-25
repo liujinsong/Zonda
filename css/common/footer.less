@@ -1,1 +1,114 @@
 //footer
+#footer {
+    width: @inner-width;
+    height: 112px;
+
+    .link {
+        width: @inner-width;
+        height: 28px;
+
+        padding-top: 20px;
+        padding-left: 4px;
+
+        .cell {
+            height: 16px;
+
+            display: block;
+
+            float: left;
+
+            padding-left: 25px;
+            margin-left: 20px;
+
+            color: #999;
+            font-size: 12px;
+            line-height: 16px;
+            
+            background: url('@{img}image.png') no-repeat;
+            background-position-x: -962px;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+        } // END cell
+
+        .tx {
+            background-position-y: -1px;
+        }
+
+        .xl {
+            background-position-y: -20px;
+        }
+
+        .wy {
+            background-position-y: -39px;
+        }
+
+        .sh {
+            background-position-y: -58px;
+        }
+
+        .xy {
+            background-position-y: -77px;
+        }
+
+        // 友情链接
+        .more {
+            background-position-y: -97px;
+
+            color: #F7B400;
+        }
+
+    } // END link
+
+    // 友情链接列表
+    .more-list {
+        width:@inner-width;
+        height: 40px;
+
+        display: none;
+
+        background: url('@{img}image.png') no-repeat center;
+        background-position: -16px -909px;
+
+        position: absolute;
+
+        padding-top: 7px;
+        margin-top: -8px;
+        margin-left: 11px;
+
+        li {
+            float: left;
+
+            line-height: 40px;
+
+            a {
+                padding-left: 15px;
+                padding-right: 15px;
+
+                border-left: 1px solid #dadada;
+
+                color: #999;
+                font-size: 12px;
+            }
+
+            &:first-child a {
+                border: none;
+            }
+        }
+    }// END more-list
+
+    // 联系方式
+    .contact {
+        color: #aaa;
+        font-size: 12px;
+
+        p {
+            padding-left: 21px;
+            padding-bottom: 5px;
+
+            margin: 0;
+        }
+    } // contact
+}

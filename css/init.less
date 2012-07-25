@@ -40,7 +40,7 @@
     );
 }
 
-// 当前项目可复用样式
+// 全局样式
 @base-width: 980px;
 @inner-width: 950px;
 
@@ -54,20 +54,11 @@ body {
     margin: 0 auto;
 }
 
-// header
+// header / 头部
 @import 'common/header';
 
-// 首页样式
+// index / 首页
 @import 'unit/index';
 
-// 主体
-#main {
-    width: @base-width;
-    height: 600px;
-
-    background: #fff;
-
-    .wrap {
-        width: @inner-width;
-    }
-}
+// footer / 底部
+@import 'common/footer';

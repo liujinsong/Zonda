@@ -1,5 +1,18 @@
-// 首页特有样式
+// index
 
+// 主体公用
+#main {
+    width: @base-width;
+    height: 600px;
+
+    background: #fff;
+
+    .wrap {
+        width: @inner-width;
+    }
+}
+
+// 首页特有样式 
 // Slide以及新闻动态
 #main .big-board {
     width: @inner-width;
@@ -13,9 +26,19 @@
     width: 475px;
     height: 315px;
 
+    float: left;
+
+    position: relative;
+
+    // 视图渲染后slide部分先显示一个gif，表示正在加载JS
+    background: url('@{img}loading.gif') center no-repeat;
+
     .cell {
         width: 475px;
         height: 315px;
+
+        // 首页加载后，先不显示图片
+        display: none;
 
         overflow: hidden;
 
@@ -23,6 +46,351 @@
     }
 
     .title {
+        height: 35px;
+
+        display: block;
+
+        padding-left: 15px;
+        padding-right: 15px;
+
         position: absolute;
+        bottom: 10px;
+        left: 20px;
+
+        color: #fff;
+        font-size: 12px;
+        line-height: 35px;
+        text-align: center;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        .text {
+            position: relative;
+            z-index: 1;
+
+        }
+
+        .bg {
+            width: 100%;
+            height: 33px;
+
+            float: left;
+
+            display: block;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            z-index: 0;
+
+            //margin-left: -15px;
+
+            border: 1px solid #fff;
+
+            background: black;
+
+            .opacity(48);
+        }
+    } // slide 标题
+
+    // slide 页码
+    .slide-page {
+        width: 126px;
+        height: 315px;
+
+        position: absolute;
+        right: 0;
+
+        z-index: 10;
+
+        padding-left: 20px;
+        padding-right: 10px;
+
+        background: url('@{img}image.png') no-repeat center;
+        background-position:0 -204px;
+
+        ul {
+            position: absolute;
+            right: 10px;
+            bottom: 14px;
+        }
+
+        li {
+            width: 11px;
+            height: 11px;
+
+            float: left;
+
+            margin-left: 6px;
+
+            background: url('@{img}image.png') no-repeat center;
+            background-position: -424px -1px;
+
+            cursor: pointer;
+
+            &:hover {
+                background-position: -437px -1px;
+            }
+        }
+
+        .on {
+            background-position: -437px -1px;
+        }
+
+    } // END .slide-page
+
+} // END slide
+
+// slide 右侧的新闻动态以及在线捐增
+.big-board .news-link {
+    width: 475px;
+
+    float: left;
+
+    // 新闻动态
+    .news {
+        width: 475px;
+        height: 229px;
+
+        h2 {
+            height: 34px;
+
+            padding-top: 35px;
+            padding-left: 18px;
+
+            line-height: 1em;
+
+            a {
+                color: #80A2C9;
+                font-size: 14px;
+            }
+        }
+
+        // 新闻动态列表
+        .news-list {
+            width: 456px;
+            height: 146px;
+
+            padding-left: 18px;
+            padding-top: 12px;
+
+            border:1px solid #115489;
+            border-right: none;
+
+            background: url('@{img}image.png') no-repeat center;
+            background-position: -176px -204px;
+
+            a {
+                color: #80A2C9;
+                font-size: 12px;
+                line-height: 1.9em;
+            }
+        }
     }
+
+    // 到账查询/在线捐赠
+    .link {
+        width: 475px;
+        height: 85px;
+
+        background-color: #00497F;
+
+        // 到账查询
+        .check {
+            width: 102px;
+            height: 35px;
+
+            display: block;
+
+            position: relative;
+            top: 24px;
+            left: 166px;
+
+            float: left;
+
+            background: url('@{img}image.png') no-repeat center;
+            background-position: -543px 0;
+
+            line-height: 35px;
+            text-align: center;
+            color: #fff;
+            font-size: 12px;
+
+            &:hover {
+                background-position-y: -35px;
+
+                text-decoration: none;
+            }
+        }
+
+        // 在线捐赠
+        .donate {
+            width: 166px;
+            height: 35px;
+
+            display: block;
+
+            position: relative;
+            top: 24px;
+            left: 186px;
+
+            float: left;
+
+            background: url('@{img}image.png') no-repeat center;
+            background-position: -660px 0;
+
+            color: #7E5E05;
+            font-size: 16px;
+            line-height: 35px;
+            text-align: center;
+
+            &:hover {
+                background-position-y: -35px;
+
+                text-decoration: none;
+            }
+        }
+    } // END .link
 }
+
+// 首页slide下面链接部分
+#main .news-thanks-project {
+    width: @inner-width;
+    height: 280px;
+
+    background: url('@{img}image.png') no-repeat;
+    background-position: -15px -608px;
+
+    // 菜单
+    .menu {
+        width: @inner-width;
+        height: 45px;
+
+        background: url('@{img}image.png') no-repeat;
+        background-position: -15px -547px;
+
+        .cell {
+            width: 316px;
+            height: 40px;
+
+            margin-top: 5px;
+
+            float: left;
+
+            border-left: 1px solid #dadada;
+
+            background: url('@{img}image.png') no-repeat;
+            background-position: -618px -92px;
+            
+            // 大标题
+            h2 {
+                float: left;
+
+                line-height: 27px;
+            }
+            
+            h2 a {
+                padding-left: 34px;
+
+                color: #666;
+                font-size: 14px;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            &:first-child {
+                border: none;
+            }
+
+            // 小标题
+            .sub-title {
+                height: 34px;
+
+                float: right;
+
+                display: block;
+
+                padding-left: 12px;
+                padding-right: 12px;
+                margin-top: 1px;
+
+                border-left: 1px solid #d6d6d6;
+                
+                line-height: 35px;
+                color: #888;
+
+                background: url('../../images/image.png') no-repeat;
+                background-position: 50% -552px;
+
+                &:hover {
+                    background: #e5e5e5 url('@{img}image.png') no-repeat center bottom;
+
+                    text-decoration: none;
+                }
+
+            } // END sub-title
+
+            .on {
+                background: #e5e5e5 url('@{img}image.png') no-repeat center bottom;
+            }
+
+        }
+    } // 菜单
+
+    // 下面的三块div，分别为公告，鸣谢，项目
+    .block {
+        width: 298px;
+        height: 215px;
+
+        float: left;
+
+        border-left: 1px solid #dadada;
+
+        padding-top: 15px;
+        padding-left: 18px;
+
+        &:first-child {
+            border: none;
+        }
+
+        ul {
+            width: 280px;
+
+            position: absolute;
+
+            a {
+                color: #999;
+                font-size: 12px;
+                line-height: 1.9em;
+            }
+
+        } // END ul
+
+        // 隐藏所有的side列表
+        .side {
+            display: none;
+        }
+
+        // 只显示side-a列表
+        .side-a {
+            display: block;
+        }
+
+        // 查看更多
+        .more {
+            position: absolute;
+
+            margin-top: 163px;
+
+            color: #E6A701;
+            font-size: 12px;
+        }
+
+    } // END .cell
+
+} // END #main .news-thanks-project

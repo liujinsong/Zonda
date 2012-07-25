@@ -1,0 +1,223 @@
+/**
+ * slide.js
+ * 幻灯片模块
+ *
+ * init: 方法，初始化slide实例，若需要page，则生成page，配置完毕后，须执行初始化init
+ *
+ * play: 方法，自动播放幻灯片
+ * pause: 方法，停止播放幻灯片
+ *
+ * next: 方法，下一个
+ * prev: 方法，上一个
+ *
+ * 配置参数如下：
+ * slideDOM: DOM，必须参数，除此之外的配置参数为可选，
+ *           作为slide的<ul>，该<ul>下的所有<li>将作为幻灯片播放
+ *
+ * slideLength: Number，幻灯片数目
+ *
+ * speed: Number，毫秒数，切换的速度
+ *
+ * pageDOM: DOM，将作为slide的页码的<ul>，
+ *          模块会根据slideDOM的<ul>中的<li>的数量自动生成Page<li>插入到pageDOM中
+ *
+ * pageNum: true/false，是否在page上显示页码数字
+ *
+ * type(TODO): String，动画方式
+ *
+ */
+define( function ( require, exports, module ) {
+    var _ = require('underscore');
+    var $ = require('jquery');
+
+    // 配置,初始置为空
+    exports.config = {};
+
+    // 必须的参数
+    var need = {
+        slideDOM : ''
+    };
+
+    // 默认配置 / 模块内部缓存配置
+    var _config = {
+        speed   : 2000,
+        pageDOM : null,
+        pageNum : false,
+        type    : 'fade'
+    };
+
+    /**
+     * 检查配置，并重写配置
+     */
+    var checkConfig = function ( ) {
+        // 当配置改变时，重新检查配置
+        if ( _.isEqual( _config, exports.config ) ) {
+            return false;
+        } else {
+            // 将当前配置与默认/缓存配置合并
+            _.extend( _config, exports.config );
+
+            // 将合并的配置保存到当前配置中
+            exports.config = _config;
+        }
+
+        // 检查是否包含必须的配置项
+        try {
+            _.each( need, function ( em, key ) {
+                if ( !_.has( exports.config, key ) ) {
+                    throw new Error('Slide模块未配置' + key );
+                }
+            });
+
+        } catch (e) {
+            if ( window.console !== undefined ) {
+                console.error( e.message );
+            } else {
+                alert( e.message );
+            }
+        }
+
+    }; // END checkConfig
+
+    // 是否停止自动播放
+    var autoPlay = true;
+
+    // 计时器
+    var timer;
+
+    // 当前页码
+    var onPage = -1;
+
+    // 缓存幻灯片以及幻灯片页码的jQuery对象
+    var slideArr;
+    var pageArr;
+
+    // Play 方法
+    exports.play = function ( page ) {
+        // 计数器置空
+        clearTimeout( timer );
+
+        // 传入了page参数，则跳到page指定的幻灯片
+        if ( page !== undefined ) {
+            // 将当前页码置为传入的page
+            onPage = Math.abs( page );
+
+            // 显示幻灯片
+            slideArr.fadeOut('slow');
+            slideArr.eq( onPage ).stop().fadeIn('fast');
+
+            if ( pageArr ) {
+                // 当前页码加亮
+                pageArr.removeClass('on');
+                pageArr.eq( onPage ).addClass('on');
+            }
+
+        // 无参数，则从onPage对应的幻灯片开始
+        } else {
+            // 幻灯片播放到最后一张时，跳至第一张
+            if ( onPage === (exports.slideLength -1) ) {
+                exports.play( 0 );
+            } else {
+                // 播放下一张
+                onPage = onPage +1;
+
+                exports.play( onPage );
+            }
+
+            // 不执函数体末尾的延时递归
+            return false;
+        }
+
+        // 自动播放，切换速度按照配置执行
+        if ( autoPlay ) {
+            timer = setTimeout( function () {
+                exports.play();
+            }, exports.config.speed );
+        }
+
+    }; // END play
+
+    // Stop 方法
+    exports.pause = function () {
+        if ( autoPlay ) {
+            autoPlay = false;
+
+            // 停止回调play方法
+            clearTimeout( timer );
+        } else {
+            autoPlay = true;
+
+            exports.play();
+        }
+    }; // END stop
+
+    // Next 方法
+    exports.next = function () {
+        // 当前显示的幻灯片不为最后一张时，onPage加1
+        if ( onPage !== (exports.slideLength -1) ) {
+            onPage = onPage +1;
+        }
+
+        exports.play( onPage );
+    }; // END next
+
+    // Prev 方法
+    exports.prev = function () {
+        // 不为第一张时，onPage减1
+        if ( onPage !== 0 ) {
+            onPage = onPage -1;
+        }
+
+        exports.play( onPage );
+    }; // END prev
+
+    /**
+     * init 方法
+     * 初始化slide
+     */
+    exports.init = function () {
+        // 检查配置
+        checkConfig();
+
+        // 将幻灯片个数缓存到模块配置中
+        exports.slideLength = $( exports.config.slideDOM ).find('>li').size();
+
+        // 缓存单张幻灯片的jQuery对象
+        slideArr = $( exports.config.slideDOM ).find('>li');
+
+        if ( exports.config.pageDOM !== null ) {
+        
+            // 生成slide page
+            var li;
+
+            slideArr.each( function (i) {
+                if ( exports.config.pageNum ) {
+                    li = '<li page="' + i + '">' + i + '</li>';
+                } else {
+                    li = '<li page="' + i + '"></li>';
+                }
+
+                $( exports.config.pageDOM ).append( li );
+
+            });
+
+            // 缓存幻灯片页码的jQuery对象
+            pageArr = $( exports.config.pageDOM ).find('li');
+
+            // 为页面绑定点击事件，点击的时候调用play方法
+            pageArr.each( function () {
+                var page = $(this).attr('page');
+
+                $(this).click( function () {
+                    exports.play( page );
+                });
+            });
+
+        } // END if
+
+        // 初始化结束，执行自动播放
+        exports.play();
+
+    }; // END init
+
+});

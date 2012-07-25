@@ -27,6 +27,8 @@
 */
 
 /* 双倍Margin BUG */
+#big-slide .slide-page li,
+#footer .link .cell,
 #header .search button {
     _display: inline;
 }
@@ -46,4 +48,32 @@
 :root #main {
     position: relative;
     top: -1px;
+}
+
+.big-board {
+    _position: relative;
+    _left: -1px;
+}
+
+.slide-page {
+    _right: -1px!IMPORTANT;
+}
+
+#big-slide .slide-page li {
+    _line-height: 11px!IMPORTANT;
+    _padding: 0!IMPORTANT;
+}
+
+/* ie9 捐赠链接bug */
+:root .big-board .news-link .link .donate {
+    height: 34px!IMPORTANT;
+}
+
+/* ie6 多1像素bug */
+#main .news-thanks-project .menu .cell {
+    _width: 315px;
+}
+
+#main .news-thanks-project .menu .cell .sub-title {
+    _line-height: 34px;
 }
