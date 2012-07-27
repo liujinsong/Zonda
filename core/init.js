@@ -6,25 +6,25 @@
 // 配置loader
 seajs.config({
     //顶级标识
-    //base : '最好不要配置此项',
+    //base : '最好不配置此项',
 
     // 配置别称
     alias : {
-        'underscore' : '/statics/foundation/lib/underscore-min.js',
-        'jquery' : '/statics/foundation/lib/jquery-1.7.2.min.js',
-        'backbone' : '/statics/foundation/lib/backbone-min.js',
-        'pngFix' : '/statics/foundation/lib/DD_belatedPNG_0.0.8a-min.js'
+        'underscore' : 'path/lib/underscore-min.js',
+        'jquery' : 'path/lib/jquery-1.7.2.min.js',
+        'backbone' : 'path/lib/backbone-min.js',
+        'pngFix' : 'path/foundation/lib/DD_belatedPNG_0.0.8a-min.js'
     },
 
     // 预加载
     preload : [
         'plugin-text',
-        this.JSON ? '' : '/statics/foundation/lib/json',
-        Function.prototype.bind ? '' : '/statics/foundation/lib/es5-safe'
+        this.JSON ? '' : 'path/lib/json',
+        Function.prototype.bind ? '' : 'path/lib/es5-safe'
     ],
 
     charset : 'utf-8'
 });
 
 // 加载主文件
-seajs.use('/statics/foundation/root');
+seajs.use('path/root');

@@ -1,5 +1,0 @@
-Error: Command failed: [31mParseError: Syntax Error on line 71[39m[31m in [39m/home/shiyang/www/Alumni2012/Foundation/statics/foundation/css/init.less[90m:71:0[39m
-[90m70 @import 'unit/index';[39m
-71 [7m[31m[1m;[22m[39m[27m
-[90m72 [39m[0m
-

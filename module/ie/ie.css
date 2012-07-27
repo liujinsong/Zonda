@@ -28,74 +28,7 @@
 
 /* 双倍Margin BUG */
 #big-slide .slide-page li,
-#footer .link .cell,
-#main .news-thanks-project .project .slide-ul .thumb,
-#main .news-thanks-project .project .slide-ul h3,
 #main .sub .side-bar,
 #header .search button {
     _display: inline;
-}
-
-/* 菜单 first-child */
-#header .first-menu-cell {
-    padding-left: 30px!IMPORTANT;
-
-    background-position: 100px 100px!IMPORTANT;
-}
-
-#header .first-menu-cell:hover {
-    background-position: -452px -64px!IMPORTANT;
-}
-
-/* IE9 神秘BUG */
-:root #main {
-    position: relative;
-    top: -1px;
-}
-
-.big-board {
-    _position: relative;
-    _left: -1px;
-}
-
-.slide-page {
-    _right: -1px!IMPORTANT;
-}
-
-#big-slide .slide-page li {
-    _line-height: 11px!IMPORTANT;
-    _padding: 0!IMPORTANT;
-}
-
-/* ie9 捐赠链接bug */
-:root .big-board .news-link .link .donate {
-    height: 34px!IMPORTANT;
-}
-
-/* ie6 多1像素bug */
-#main .news-thanks-project .menu .cell {
-    _width: 315px;
-}
-
-#main .news-thanks-project .menu .cell .sub-title {
-    _line-height: 34px;
-}
-
-#main .news-thanks-project .thanks ul {
-    *margin-top: -7px;
-}
-
-@media \0screen {
-    #main .news-thanks-project .thanks ul {
-        margin-top: -7px;
-    }
-}
-
-.sub-breadcrumb {
-    position: relative;
-    top: 2px;
-}
-
-:root .sub-breadcrumb {
-    top: 0!IMPORTANT;
 }
