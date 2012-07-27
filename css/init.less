@@ -1,6 +1,7 @@
 /**
-* 主CSS文件
-*/
+ * init.less
+ * 主CSS文件
+ */
 // 路径配置
 @img : '../../images/';
 
@@ -50,6 +51,7 @@ body {
 
 .wrap {
     width: @base-width;
+    min-height: 600px;
 
     margin: 0 auto;
 }
@@ -57,8 +59,11 @@ body {
 // header / 头部
 @import 'common/header';
 
-// index / 首页
-@import 'unit/index';
-
 // footer / 底部
 @import 'common/footer';
+
+// 二级，三级页面布局
+@import 'common/sub';
+
+// index / 首页
+@import 'unit/index';

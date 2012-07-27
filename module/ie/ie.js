@@ -45,9 +45,12 @@
                     '.big-board .donate,' +
                     '#footer .link .cell,' +
                     '#footer .more-list,' +
+                    '#main .news-thanks-project .menu,' +
                     '#main .news-thanks-project .menu .cell,' +
                     '#main .news-thanks-project .menu .cell .sub-title,' +
                     '#main .news-thanks-project,' +
+                    '.sub-breadcrumb,' +
+                    '.sub-content .content-body .sub-list li .time,' +
                     '#header .first-menu-cell'
                 );
 
@@ -91,5 +94,12 @@
 
             fixSlideTitle();
         } // END if
+
+        // IE6 支持最小高度
+        if ( $("#main .wrap")[0] && IE6() ) {
+            if ( $("#main .wrap").outerHeight() < 600 ) {
+                $("#main .wrap").css( 'height', '600px' );
+            }
+        }
 
     });// END define

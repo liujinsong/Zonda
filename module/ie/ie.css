@@ -29,6 +29,9 @@
 /* 双倍Margin BUG */
 #big-slide .slide-page li,
 #footer .link .cell,
+#main .news-thanks-project .project .slide-ul .thumb,
+#main .news-thanks-project .project .slide-ul h3,
+#main .sub .side-bar,
 #header .search button {
     _display: inline;
 }
@@ -76,4 +79,23 @@
 
 #main .news-thanks-project .menu .cell .sub-title {
     _line-height: 34px;
+}
+
+#main .news-thanks-project .thanks ul {
+    *margin-top: -7px;
+}
+
+@media \0screen {
+    #main .news-thanks-project .thanks ul {
+        margin-top: -7px;
+    }
+}
+
+.sub-breadcrumb {
+    position: relative;
+    top: 2px;
+}
+
+:root .sub-breadcrumb {
+    top: 0!IMPORTANT;
 }

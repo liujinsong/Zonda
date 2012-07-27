@@ -23,7 +23,9 @@
  *
  * pageNum: true/false，是否在page上显示页码数字
  *
- * type(TODO): String，动画方式
+ * animation: String，动画方式
+ *
+ * cutover : true/false，是否在page中加上“上一个”和“下一个”按钮
  *
  */
 define( function ( require, exports, module ) {
@@ -40,10 +42,11 @@ define( function ( require, exports, module ) {
 
     // 默认配置 / 模块内部缓存配置
     var _config = {
-        speed   : 2000,
-        pageDOM : null,
-        pageNum : false,
-        type    : 'fade'
+        speed     : 2000,
+        pageDOM   : null,
+        pageNum   : false,
+        animation : 'fade',
+        cutover   : false
     };
 
     /**
@@ -103,8 +106,21 @@ define( function ( require, exports, module ) {
             onPage = Math.abs( page );
 
             // 显示幻灯片
-            slideArr.fadeOut('slow');
-            slideArr.eq( onPage ).stop().fadeIn('fast');
+            // 根据选择的效果不同，采用不同的方式渲染
+            // 淡入淡出 fade
+            if ( exports.config.animation === 'fade' ) {
+                slideArr.fadeOut('slow');
+                slideArr.eq( onPage ).stop().fadeIn('fast');
+            // 淡出后，再淡入
+            } else if ( exports.config.animation === 'callBackFade' ) {
+                slideArr.fadeOut('fast', function () {
+                    slideArr.eq( onPage ).fadeIn('fast');
+                });
+            // 未实现的效果，则直接hide/show
+            } else {
+                slideArr.hide();
+                slideArr.eq( onPage ).show();
+            }
 
             if ( pageArr ) {
                 // 当前页码加亮
@@ -126,6 +142,18 @@ define( function ( require, exports, module ) {
 
             // 不执函数体末尾的延时递归
             return false;
+        }
+
+        // 如果当前幻灯片为开头或末尾，则“next”和“prev”按钮加上class
+        if ( onPage === 0 && exports.config.cutover ) {
+            $( exports.config.pageDOM ).find('.prev').addClass('beginning');
+            $( exports.config.pageDOM ).find('.next').removeClass('end');
+        } else if ( onPage === (exports.slideLength -1) && exports.config.cutover ) {
+            $( exports.config.pageDOM ).find('.next').addClass('end');
+            $( exports.config.pageDOM ).find('.prev').removeClass('beginning');
+        } else {
+            $( exports.config.pageDOM ).find('.prev').removeClass('beginning');
+            $( exports.config.pageDOM ).find('.next').removeClass('end');
         }
 
         // 自动播放，切换速度按照配置执行
@@ -185,24 +213,40 @@ define( function ( require, exports, module ) {
         // 缓存单张幻灯片的jQuery对象
         slideArr = $( exports.config.slideDOM ).find('>li');
 
-        if ( exports.config.pageDOM !== null ) {
+        // 当传入了page的DOM并且幻灯片数量大于1时，生成page，next，prev
+        if ( exports.config.pageDOM !== null && exports.slideLength > 1 ) {
         
             // 生成slide page
             var li;
 
             slideArr.each( function (i) {
                 if ( exports.config.pageNum ) {
-                    li = '<li page="' + i + '">' + i + '</li>';
+                    li = '<li><a class="slide-page-cell" page="' + i + '">' + i + '</a></li>';
                 } else {
-                    li = '<li page="' + i + '"></li>';
+                    li = '<li><a class="slide-page-cell" page="' + i + '"></a></li>';
                 }
 
                 $( exports.config.pageDOM ).append( li );
 
             });
 
+            // 在page中生成“next”和“prev”按钮
+            if ( exports.config.cutover ) {
+                $( exports.config.pageDOM ).prepend( '<li><a class="prev"></a></li>' );
+                $( exports.config.pageDOM ).append( '<li><a class="next"></a></li>' );
+
+                // 为“next”和“prev”按钮绑定事件
+                $( exports.config.pageDOM ).find('.next').click( function () {
+                    exports.next();
+                });
+
+                $( exports.config.pageDOM ).find('.prev').click( function () {
+                    exports.prev();
+                });
+            }
+
             // 缓存幻灯片页码的jQuery对象
-            pageArr = $( exports.config.pageDOM ).find('li');
+            pageArr = $( exports.config.pageDOM ).find('a.slide-page-cell');
 
             // 为页面绑定点击事件，点击的时候调用play方法
             pageArr.each( function () {

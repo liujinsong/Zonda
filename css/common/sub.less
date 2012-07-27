@@ -1,0 +1,48 @@
+/**
+ * sub.less
+ * 二三级页面公用布局
+ */
+// 面包屑
+@import 'breadcrumb';
+
+// 侧边栏
+@import 'sub.side.bar';
+
+// 列表页面
+@import 'unit/list';
+
+// 文章页面
+@import 'unit/show';
+
+#main .sub {
+    background: url('@{img}sub-bg.png') center repeat-y;
+
+    // 侧边栏
+    .side-bar {
+        width: 220px;
+
+        float: left;
+
+        margin-right: -10px;
+    }
+
+    // sub主体
+    .sub-content {
+        width: 740px;
+
+        float: left;
+    }
+}
+
+// sub页面底部圆角
+#main .sub-bottom-corner {
+    width: @inner-width;
+    height: 27px;
+
+    margin: 0 auto;
+
+    clear: both;
+
+    background: #fff url('@{img}image.png') no-repeat;
+    background-position: -16px -987px;
+}

@@ -19,16 +19,18 @@ define( function ( require, exports, module ) {
     });
 
     /**
-     * 最新捐赠，推荐项目slide
+     * 最新捐赠slide
      */
     $(".news-thanks-project .main .thanks .side").each( function () {
         var _this = this;
 
         seajs.use('/statics/foundation/module/slide.module', function ( slide ) {
             slide.config = {
-                slideDOM : $(_this)[0],
-                pageDOM  : '',
-                speed    : 3500
+                slideDOM  : $(_this).find('.slide-ul')[0],
+                pageDOM   : $(_this).find('ul.page')[0],
+                cutover   : true,
+                animation : 'no',
+                speed     : 3500
             };
 
             slide.init();
@@ -36,11 +38,27 @@ define( function ( require, exports, module ) {
     });
 
     /**
+     * 推荐项目slide
+     */
+    seajs.use('/statics/foundation/module/slide.module', function ( slide ) {
+        var project = $("#main .news-thanks-project .project");
+        slide.config = {
+            slideDOM  : project.find('.slide-ul')[0],
+            pageDOM   : project.find('ul.page')[0],
+            cutover   : true,
+            animation : 'no',
+            speed     : 4300
+        };
+
+        slide.init();
+    });
+
+    /**
      * 基金会公告，最新捐赠的tab切换
      */
     // 信息切换
     var checkTab = function ( type, side ) {
-        $(".news-thanks-project .main ." + type + '>ul').hide();
+        $(".news-thanks-project .main ." + type + ' .side').hide();
         $(".news-thanks-project .main ." + type + ' .side-' + side ).show();
     };
 
