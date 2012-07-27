@@ -1,0 +1,69 @@
+/**
+ * init.less
+ * 主CSS文件
+ */
+// 路径配置
+@img : '../../images/';
+
+// bootstrap, reset
+@import 'bootstrap.min.css';
+
+// 预定义样式
+.clear {
+    clear: both;
+}
+
+.opacity ( @num : 50 ) {
+    opacity: @num / 100;
+    filter: alpha(opacity=@num);
+}
+
+.box-shadow ( @x: 1px, @y: 1px, @blur: 2px, @color: rgba( 0, 0, 0, 0.3 ) ) {
+    box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    -webkit-box-shadow: @arguments;
+}
+
+.background-gradient ( @start: #EDEDED, @end: #DEDEDE ) {
+    background-image: linear-gradient( 
+    @start, 
+    @end
+    );
+
+    background-image: -webkit-linear-gradient( 
+    @start, 
+    @end
+    );
+
+    background-image: -moz-linear-gradient( 
+    @start, 
+    @end
+    );
+}
+
+// 全局样式
+@base-width: 980px;
+@inner-width: 950px;
+
+body {
+    background: #fff url('@{img}body-bg.png') top repeat-x;
+}
+
+.wrap {
+    width: @base-width;
+    min-height: 600px;
+
+    margin: 0 auto;
+}
+
+// header / 头部
+@import 'common/header';
+
+// footer / 底部
+@import 'common/footer';
+
+// 二级，三级页面布局
+@import 'common/sub';
+
+// index / 首页
+@import 'unit/index';

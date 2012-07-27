@@ -1,0 +1,46 @@
+/**
+ * sub.side.bar.less
+ * 二三级页面侧边栏
+ */
+#main .sub .side-bar {
+
+    .thumb {
+        width: 210px;
+        height: 139px;
+
+        background: url('@{img}image.png') no-repeat;
+        background-position: -176px -380px;
+    } // END .thumb
+
+    .menu li {
+
+        a {
+            width: 220px;
+            height: 34px;
+
+            display: block;
+
+            background: url('@{img}image.png') no-repeat;
+            background-position: -672px -239px;
+
+            line-height: 34px;
+            color: #868686;
+            font-size: 12px;
+            text-decoration: none;
+            text-align: center;
+
+            &:hover {
+                color: #666;
+                text-decoration: none;
+            } // END hover
+        }
+
+        .on {
+            background-position: -672px -205px;
+
+            color: #666;
+            font-weight: bold;
+        }
+    } // END .menu li
+
+}
