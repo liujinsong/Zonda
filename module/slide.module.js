@@ -27,6 +27,42 @@
  *
  * cutover : true/false，是否在page中加上“上一个”和“下一个”按钮
  *
+ * ******************************************************************************
+ * 代码示例
+ *
+ * var slide = require('path/slide.module');
+ *
+ * 配置
+ * slide.config = {
+ *  slideDOM : document.getElementById('slider'),
+ *  pageDOM  : document.getElementById('page'),
+ *  speed    : 1200,
+ *  ...
+ * }
+ *
+ * 配置完毕，初始化
+ * slide.init();
+ *
+ * 绑定事件
+ * $("#play").click( function() {
+ *  slide.play();
+ * });
+ *
+ * ******************************************************************************
+ *
+ * 如果在页面上有多个slide，则使用下面的方法获得多个slide实例
+ * seajs.use( 'path/slide.module', function ( slide ) {
+ *
+ *  slide.config = {
+ *      ...
+ *  };
+ *
+ *  slide.init();
+ *
+ *  ...
+ *
+ * });
+ *
  */
 define( function ( require, exports, module ) {
     var _ = require('underscore');
