@@ -13,7 +13,7 @@ seajs.config({
         'underscore' : 'path/lib/underscore-min.js',
         'jquery' : 'path/lib/jquery-1.7.2.min.js',
         'backbone' : 'path/lib/backbone-min.js',
-        'pngFix' : 'path/foundation/lib/DD_belatedPNG_0.0.8a-min.js'
+        'pngFix' : 'path/lib/DD_belatedPNG_0.0.8a-min.js'
     },
 
     // 预加载
