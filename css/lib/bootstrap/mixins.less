@@ -656,6 +656,8 @@
 
     .span(@columns) {
       width: ((@gridColumnWidth) * @columns) + (@gridGutterWidth * (@columns - 1)) - 10;
+      // IE6 bug
+      _width: ((@gridColumnWidth) * @columns) + (@gridGutterWidth * (@columns - 1));
     }
 
     input,
