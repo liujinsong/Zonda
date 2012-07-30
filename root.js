@@ -20,4 +20,8 @@ define( function ( require, exports, module ) {
         require.async('./module/footer');
     }
 
+    var jqueryUI = require('jquery-ui');
+    jqueryUI.init( $ );
+    $("#time").datepicker();
+
 }); // END root.js
