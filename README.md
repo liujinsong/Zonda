@@ -34,6 +34,8 @@ Zonda——Degas自家用的前端框架。
     + TODO，自定义错误事件，回调消息函数。
 
     + 目前支持验证普通的 input:text 表单，select:option 表单，textarea，以后会慢慢添加更多类型的表单验证。
+    
+## Zonda搭载的强劲部件
 
 - [`Seajs`](http://seajs.org/docs/#intro) : 作为核心库，进行模块的依赖管理
 
