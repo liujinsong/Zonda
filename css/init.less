@@ -8,48 +8,12 @@
 // typo
 @import 'lib/typo/typo';
 
-// 预定义样式
-.clear {
-    clear: both;
-}
-
-.opacity ( @num : 50 ) {
-    opacity: @num / 100;
-    filter: alpha(opacity=@num);
-}
-
-.box-shadow ( @x: 1px, @y: 1px, @blur: 2px, @color: rgba( 0, 0, 0, 0.3 ) ) {
-    box-shadow: @arguments;
-    -moz-box-shadow: @arguments;
-    -webkit-box-shadow: @arguments;
-}
-
-.background-gradient ( @start: #EDEDED, @end: #DEDEDE ) {
-    background-image: linear-gradient( 
-    @start, 
-    @end
-    );
-
-    background-image: -webkit-linear-gradient( 
-    @start, 
-    @end
-    );
-
-    background-image: -moz-linear-gradient( 
-    @start, 
-    @end
-    );
-}
-
 // 全局样式
 @base-width: 980px;
 @inner-width: 940px;
 
 // 路径配置
 @img : '../../images/';
-
-body {
-}
 
 .wrap {
     width: @base-width;
