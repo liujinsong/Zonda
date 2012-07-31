@@ -36,17 +36,17 @@ Zonda——Degas自家用的前端框架。
 
     + 目前支持验证普通的 input:text 表单，select:option 表单，textarea，以后会慢慢添加更多类型的表单验证。
     
-## Zonda搭载的强劲部件
+## Zonda搭载的强劲零件
 
-- [`Seajs`](http://seajs.org/docs/#intro) : 作为核心库，进行模块的依赖管理
+- [`Seajs`](http://seajs.org/docs/#intro) : 国产强劲引擎，作为核心库，进行模块的依赖管理
 
-- [`Typo`](http://typo.sofish.de/) : 获得更美观的中文排版
+- [`Typo`](http://typo.sofish.de/) : 钟表式仪表盘，获得更美观的中文排版
 
-- [`Modernizr`](http://modernizr.com/) : 检测浏览器对HTML5和CSS3的支持
+- [`Modernizr`](http://modernizr.com/) : 进口行车电脑，检测浏览器对HTML5和CSS3的支持
 
-- [`Bootstrap`](http://twitter.github.com/bootstrap/index.html) : 强力的UI的支持，对IE的支持不好，在寻找支持的IE的解决方案
+- [`Bootstrap`](http://twitter.github.com/bootstrap/index.html) : 进口碳素纤维车身，强力的UI的支持，对IE的支持不好，在寻找支持的IE的解决方案
 
-- [`Less`](http://lesscss.org/)对CSS进行组织
+- [`Less`](http://lesscss.org/) : 进口涡轮增压装置，对CSS进行组织
 
 谢谢Seajs，Less的作者，他们让前端写代码变成一件愉悦的事情，维护起来也不再那么头疼了。
 
